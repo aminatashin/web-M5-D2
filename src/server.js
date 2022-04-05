@@ -1,11 +1,12 @@
 import express from "express";
-import myRouter from "./API/author/author.js";
+import myRouter from "./API/author/authors.js";
 import listenEndpoints from "express-list-endpoints";
 
 const server = express();
 const port = 3001;
 
-server.use("/author", myRouter);
+server.use("/authors", myRouter);
+server.use(express.json());
 
 server.listen(port, () => {
   console.table(listenEndpoints(server));
